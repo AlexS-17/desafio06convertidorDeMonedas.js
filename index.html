@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="./assets/img/icon.jpg">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Conversor de monedas nacional</title>
+</head>
+<body>
+    <div class="container">
+        <div class="converter">
+            <header class="converter__header"></header>
+            <h1 class="converter__title"><strong>Conversor de monedas nacional</strong></h1>
+            <main class="converter__main">
+                <div class="converter__box">
+                    <h2 class="converter__subtitle">Pesos CLP</h2>
+                    <input type="number" class="converter__input" placeholder="Ingresa el monto en CLP" id="converter__input-amount">
+                    <p class="converter__text">Moneda a convertir</p>
+                    <select name="currency" class="converter__select" id="converter__select-currency">
+                        <option value="initial" selected>Selecciona una moneda</option>
+                        <option value="dolar">Dólar</option>
+                        <option value="euro">Euro</option>
+                        <option value="uf">UF</option>
+                    </select>
+                    <div class="converter__button-container">
+                        <button class="converter__button" onclick="handleClick()" id="converter__button-search"><strong>Buscar</strong></button>
+                    </div>
+                    <label class="converter__result" id="converter__label-result">...</label>
+                </div>
+            </main>
+        </div>
+        <div class="chart">
+            <canvas id="chart__canvas"></canvas>
+        </div>
+    </div>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
+
+
