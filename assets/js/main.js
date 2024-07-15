@@ -31,26 +31,30 @@ async function handleClick() {
 
 // FUNCION PARA CALCULAR VALOR DE MONEDA
 async function calculateCurrency() {
-    const currencies = await fetchCurrencyData();
-    let currency = document.querySelector("#converter__select-currency").value;
-    
-    if (currency === "inicial" || inputAmount.value === "") {
-        finalResult = 0;
-        labelResult.innerHTML = "...";
-        return;
-    }
+    try {
+        const currencies = await fetchCurrencyData();
+        let currency = document.querySelector("#converter__select-currency").value;
 
-    if (currency === "dolar") {
-        finalResult = inputAmount.value / currencies.dolar.valor;
-    } else if (currency === "euro") {
-        finalResult = inputAmount.value / currencies.euro.valor;
-    } else if (currency === "uf") {
-        finalResult = inputAmount.value / currencies.uf.valor;
-    } else {
-        finalResult = 0;
-    }
+        if (currency === "inicial" || inputAmount.value === "") {
+            finalResult = 0;
+            labelResult.innerHTML = "...";
+            return;
+        }
 
-    labelResult.innerHTML = finalResult.toFixed(2);
+        if (currency === "dolar") {
+            finalResult = inputAmount.value / currencies.dolar.valor;
+        } else if (currency === "euro") {
+            finalResult = inputAmount.value / currencies.euro.valor;
+        } else if (currency === "uf") {
+            finalResult = inputAmount.value / currencies.uf.valor;
+        } else {
+            finalResult = 0;
+        }
+
+        labelResult.innerHTML = finalResult.toFixed(2);
+    } catch (error) {
+        labelResult.innerHTML = "Error en la conversión. Por favor, intente de nuevo.";
+    }
 }
 
 // FUNCIONES PARA GRÁFICO
